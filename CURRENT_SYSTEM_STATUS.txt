@@ -1,0 +1,30 @@
+BRIVVIANT STUDIO — V11 ADDITIVE PATCH STATUS
+
+IMPORTANT
+- Live UI is still the original FINAL V10 bundle.
+- index.html still loads:
+  assets/index-BRIVVIANT-FINAL-V10.js
+  assets/index-BRIVVIANT-FINAL-V10.css
+- Those two files were NOT rebuilt or replaced.
+- Requested V11 features are added through v11-patch.js + v11-patch.css only.
+- Removing those two patch files and their two index tags returns the live UI to the original FINAL V10 behavior.
+
+V11 ADDITIONS
+1) Task archive / "تم التسليم" while preserving task history and points.
+2) Durable point ledger + management manual add/deduct points.
+3) Rejected-request escalation on repeat; Team Leader cannot reject a second time.
+4) Leave request helper and rejected-request resubmission.
+5) Monthly management reports per account: submissions, lateness, points and adjustments.
+6) Voice task creation for CEO / Team Leader through Gemini model pool.
+7) If Gemini pool is unavailable: browser speech-recognition + simple parser fallback where supported; otherwise normal task form opens.
+8) Management missing brief link defaults to Drive TEST; Project Manager link remains required.
+
+DATABASE
+- Apply database/20261001_v11_strict_workflow.sql to the Studio Supabase project before using V11 features.
+
+VOICE
+- Deploy supabase/functions/brivviant-voice-task/index.ts as brivviant-voice-task.
+- Keep GEMINI_API_KEY in Supabase Edge Function Secrets only.
+
+GITHUB
+- Package intentionally stays below 100 files for browser upload.
